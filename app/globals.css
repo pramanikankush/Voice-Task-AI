@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #f54e00;
+  --color-primary-active: #d04200;
+  --color-ink: #26251e;
+  --color-body: #5a5852;
+  --color-body-strong: #26251e;
+  --color-muted: #807d72;
+  --color-muted-soft: #a09c92;
+  --color-hairline: #e6e5e0;
+  --color-hairline-soft: #efeee8;
+  --color-hairline-strong: #cfcdc4;
+  --color-canvas: #f7f7f4;
+  --color-canvas-soft: #fafaf7;
+  --color-surface-card: #ffffff;
+  --color-surface-strong: #e6e5e0;
+  --color-on-primary: #ffffff;
+  --color-timeline-thinking: #dfa88f;
+  --color-timeline-grep: #9fc9a2;
+  --color-timeline-read: #9fbbe0;
+  --color-timeline-edit: #c0a8dd;
+  --color-timeline-done: #c08532;
+  --color-semantic-error: #cf2d56;
+  --color-semantic-success: #1f8a65;
+
+  --font-sans: "Inter", system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: "Inter", system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  --spacing-section: 80px;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 9999px;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-hairline);
+  }
+
+  body {
+    background: var(--color-canvas);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-weight: 400;
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer components {
+  .card {
+    background: var(--color-surface-card);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-lg);
+  }
+
+  .btn-primary {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    border-radius: var(--radius-md);
+    padding: 10px 18px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.15s ease;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-primary-active);
+  }
+
+  .btn-secondary {
+    background: var(--color-surface-card);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    border-radius: var(--radius-md);
+    padding: 9px 17px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    border: 1px solid var(--color-hairline-strong);
+    transition: border 0.15s ease;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-hairline);
+  }
+
+  .btn-tertiary {
+    background: transparent;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    cursor: pointer;
+    border: none;
+    padding: 8px;
+  }
+
+  .btn-tertiary:hover {
+    color: var(--color-primary);
+  }
+
+  .text-input {
+    background: var(--color-surface-card);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    height: 44px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+
+  .text-input:focus {
+    border-color: var(--color-primary);
+  }
+
+  .badge-pill {
+    background: var(--color-surface-strong);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.88px;
+    text-transform: uppercase;
+    border-radius: var(--radius-pill);
+    padding: 4px 10px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .priority-high {
+    color: #cf2d56;
+  }
+
+  .priority-medium {
+    color: #c08532;
+  }
+
+  .priority-low {
+    color: #1f8a65;
+  }
+}
+
+.recording-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.waveform-bar {
+  animation: wave 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes wave {
+  from { height: 20%; }
+  to { height: 100%; }
+}
